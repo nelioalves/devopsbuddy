@@ -1,19 +1,32 @@
 package com.devopsbuddy.backend.persistence.repositories;
 
 import com.devopsbuddy.backend.persistence.domain.backend.User;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Created by nelio on 17/12/2016.
- */
 @Repository
+@Transactional(readOnly = true)  // needed for update
 public interface UserRepository extends CrudRepository<User, Long> {
 
     /**
-     * Returns a User given a username or null if not found
+     * Returns a User for the given username or null if not found
      * @param username The username
-     * @return a User given a username or null if not found
+     * @return a User for the given username or null if not found
      */
-    public User findByUsername(String username);
+    User findByUsername(String username);
+
+    /**
+     * Returns a User for the given email or null if not found
+     * @param email The email
+     * @return a User for the given email or null if not found
+     */
+    User findByEmail(String email);
+
+    @Modifying
+    @Query("update User u set u.password = :password where u.id = :userId")
+    void updateUserPassword(@Param("userId") long userId, @Param("password") String password);
 }
