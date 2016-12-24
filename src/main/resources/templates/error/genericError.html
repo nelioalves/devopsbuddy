@@ -27,7 +27,10 @@
             <b th:text="#{error.generic.ocurred}"></b> <span th:text="${timestamp}">Timestamp</span>
         </p>
 
-        <p th:text="#{error.generic.click}"></p><p><a th:text="#{error.generic.here}" th:href="@{/contact}"></a></p>
+        <p>
+            <span th:text="#{error.generic.click}"></span>
+            <a th:text="#{error.generic.here}" th:href="@{/contact}"></a>
+        </p>
 
         <p th:text="#{error.generic.ask}"></p>
 

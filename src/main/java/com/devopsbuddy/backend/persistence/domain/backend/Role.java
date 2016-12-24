@@ -7,9 +7,6 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by tedonema on 28/03/2016.
- */
 @Entity
 public class Role implements Serializable {
 

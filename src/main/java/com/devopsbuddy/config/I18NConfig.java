@@ -4,9 +4,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 
-/**
- * Created by nelio on 12/12/2016.
- */
 @Configuration
 public class I18NConfig {
 

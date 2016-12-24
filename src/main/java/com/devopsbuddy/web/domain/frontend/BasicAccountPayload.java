@@ -5,9 +5,6 @@ import org.hibernate.validator.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-/**
- * Contains basic account information that users have filled in the signup form.
- */
 public class BasicAccountPayload implements Serializable {
 
     /** The Serial Version UID for Serializable classes. */
